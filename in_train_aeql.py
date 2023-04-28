@@ -7,13 +7,9 @@ from dataset.in_SMEAD_dataset import My_FEV_Dataset
 from dataset.in_SMEAD_dataset import Load_FEV_Dataset
 import random
 import numpy as np
-from model.ResNet_LSTM import ResNet_LSTM
-from model.in_ResNet_Transformer import ResNet_Transformer
 from torch.utils.tensorboard import SummaryWriter
 import os
 from sklearn import metrics
-from model.MulT import MULT
-from model.TFN import TFN
 from model.AEQL.in_model import AEQL
 from model.AEQL.in_loss import MultimodalLoss as loss_f
 
