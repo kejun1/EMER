@@ -44,7 +44,7 @@ class My_FEV_Dataset(Dataset):
         self.e_root_dir = e_root_dir
 
         self.transform=transform
-        self.label = pd.read_excel(r'/data2/lkj/SMEAD/data/smead_cross/new_label.xlsx')
+        self.label = pd.read_excel(r'D:/SMAD/data/smead_cross/new_label.xlsx')
 
     def __getitem__(self, item):
         img_name = self.img_path[item]# 3_film_happy Happy
