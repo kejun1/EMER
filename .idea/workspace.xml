@@ -27,7 +27,7 @@
       <recent name="D:\SMAD" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.arousal_test_MATmer">
+  <component name="RunManager" selected="Python.valence_test_MATmer">
     <configuration name="Intensity_test_MATmer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SMAD" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -120,8 +120,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.arousal_test_MATmer" />
         <item itemvalue="Python.valence_test_MATmer" />
+        <item itemvalue="Python.arousal_test_MATmer" />
         <item itemvalue="Python.Intensity_test_MATmer" />
       </list>
     </recent_temporary>

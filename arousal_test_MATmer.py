@@ -112,7 +112,7 @@ def test(model, testloader, k_test):
         total_mae += sum_mae2 / count
         total_mse += sum_mse2 / count
         total_rmse += sum_rmse2 / count
-        print('set%d, test_mae_v：%.3f, test_mse_v：%.3f, test_rmse_v：%.3f'
+        print('set%d, test_mae_a：%.3f, test_mse_a：%.3f, test_rmse_a：%.3f'
               % (k_test, sum_mae2/count, sum_mse2/count, sum_rmse2/count))
 
 

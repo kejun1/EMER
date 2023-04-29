@@ -55,7 +55,7 @@ class GradReverse(torch.autograd.Function):
 
 class MATmer(nn.Module):
     def __init__(self, num_classs, transformer_depth=2):
-        super(AEQL, self).__init__()
+        super(MATmer, self).__init__()
 	
         # fine-tune
         self.subnet = ResNet_LSTM_extract(39, 2, 128, 3, 7, pretrained=True)
