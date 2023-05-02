@@ -3,7 +3,7 @@
 import torch
 from torch import nn
 from einops import rearrange
-from model.MATmer.transformer import Transformer, CrossTransformer
+from model.MAQT.transformer import Transformer, CrossTransformer
 import random
 from torch.autograd import Function
 # from torchvison.model import resnet
@@ -53,9 +53,9 @@ class GradReverse(torch.autograd.Function):
         return GradReverse.apply(x, constant)
 
 
-class MATmer(nn.Module):
+class MAQT(nn.Module):
     def __init__(self, num_classs, transformer_depth=2):
-        super(MATmer, self).__init__()
+        super(MAQT, self).__init__()
 	
         # fine-tune
         self.subnet = ResNet_LSTM_extract(39, 2, 128, 3, 7, pretrained=True)
@@ -107,18 +107,22 @@ class MATmer(nn.Module):
                                                 )
                                                 
 	# try to use non-linear classification if the performance is not well
-        self.cls_head_e = nn.Sequential(
+        self.cls_head = nn.Sequential(
             # nn.BatchNorm1d(64),
-            # nn.Linear(64, 64),
+            # nn.Linear(64, 32),
             # nn.LeakyReLU(),
-            nn.Linear(64, num_classs)
-        )
-        
-        self.cls_head_in = nn.Sequential(
-            # nn.BatchNorm1d(64),
-            # nn.Linear(64, 64),
+            # nn.Linear(32, 16),
             # nn.LeakyReLU(),
-            nn.Linear(64, 1)
+            # nn.Linear(16, 8),
+            # nn.LeakyReLU(),
+            # nn.Linear(8 , num_classs)
+            nn.Linear(64, 32),
+            nn.LeakyReLU(),
+            nn.Linear(32, 16),
+            nn.LeakyReLU(),
+            nn.Linear(16, 8),
+            nn.LeakyReLU(),
+            nn.Linear(8, num_classs)
         )
 
 
@@ -169,12 +173,11 @@ class MATmer(nn.Module):
         feat = self.transformer(modality_specific, modality_invariant).mean(dim=1)
 	
 	# classification
-        emotion_cls_output = self.cls_head_e(feat)
-        in_output = self.cls_head_in(feat)
+        emotion_cls_output = self.cls_head(feat)
         # g2 = autograd.grad(self.cls_head.parameters(), retain_graph=True)[0]
         # print(g2)
 
-        return vision_invariant_cls_out, audio_invariant_cls_out,text_invariant_cls_out, vision_specific_cls_out, audio_specific_cls_out, text_specific_cls_out, emotion_cls_output, in_output
+        return vision_invariant_cls_out, audio_invariant_cls_out,text_invariant_cls_out, vision_specific_cls_out, audio_specific_cls_out, text_specific_cls_out, emotion_cls_output
 
 
 

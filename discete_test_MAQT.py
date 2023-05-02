@@ -10,7 +10,7 @@ import numpy as np
 from torch.utils.tensorboard import SummaryWriter
 import os
 from sklearn import metrics
-from model.MATmer.model_D import MATmer
+from model.MAQT.model_D import MAQT
 
 
 def setup_seed(seed):
@@ -114,7 +114,7 @@ def main():
 
         load_path = "./checkpoints/Discrete_model/discrete_MATmer_set" + str(k_set) + ".pth"
 
-        model = MATmer(7, 2).to(device)
+        model = MAQT(7, 2).to(device)
         model.load_state_dict(torch.load(load_path))
         print("Loaded model!")
 

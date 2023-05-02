@@ -3,7 +3,7 @@
 import torch
 from torch import nn
 from einops import rearrange
-from model.MATmer.transformer import Transformer, CrossTransformer
+from model.MAQT.transformer import Transformer, CrossTransformer
 import random
 from torch.autograd import Function
 # from torchvison.model import resnet
@@ -53,9 +53,9 @@ class GradReverse(torch.autograd.Function):
         return GradReverse.apply(x, constant)
 
 
-class MATmer(nn.Module):
+class MAQT(nn.Module):
     def __init__(self, num_classs, transformer_depth=2):
-        super(MATmer, self).__init__()
+        super(MAQT, self).__init__()
 	
         # fine-tune
         self.subnet = ResNet_LSTM_extract(39, 2, 128, 3, 7, pretrained=True)
@@ -117,12 +117,12 @@ class MATmer(nn.Module):
             # nn.LeakyReLU(),
             # nn.Linear(8 , num_classs)
             nn.Linear(64, 32),
-            nn.LeakyReLU(),
-            nn.Linear(32, 16),
-            nn.LeakyReLU(),
-            nn.Linear(16, 8),
-            nn.LeakyReLU(),
-            nn.Linear(8, num_classs)
+            # nn.LeakyReLU(),
+            # nn.Linear(32, 16),
+            # nn.LeakyReLU(),
+            # nn.Linear(16, 8),
+            # nn.LeakyReLU(),
+            nn.Linear(32, num_classs)
         )
 
 
