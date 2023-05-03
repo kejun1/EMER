@@ -2,7 +2,7 @@
 This is a Pytorch implementation of "SMAD: A New Behavioural and Physiological Signal-based Spontaneous Multimodal Affective Database for Emotion
 Recognition"
 ## Details
-The Spontaneous Multimodal Affective Database (SMAD) provide a multi-dimensional perspective on human emotions. It comprises both affective behavioral and physiological signals, namely eye movement sequences, emotion-related gaze comment videos, and facial expression videos, with 1,303 data and 121 participants. Most importantly, the SMAD offers a wide range of high-reliability emotion annotations by introducing an active learning-based annotation optimization approach. These annotations include 7-class discrete emotional labels (happiness, sadness, disgust, anger, fear, surprise, and neutral), emotional intensities for each discrete category, and emotional valence and arousal ratings. This extensive range of data and annotations makes the SMAD highly suitable for real-world applications. SMAD database has enormous diversities, large quantities, and rich annotations, including:
+The Spontaneous Multimodal Affective Database (SMAD) provide a multi-dimensional perspective on human emotions. It comprises both affective behavioral and physiological signals, namely eye movement sequences, emotion-related gaze content videos, and facial expression videos, with 1,303 data and 121 participants. Most importantly, the SMAD offers a wide range of high-reliability emotion annotations by introducing an active learning-based annotation optimization approach. These annotations include 7-class discrete emotional labels (happiness, sadness, disgust, anger, fear, surprise, and neutral), emotional intensities for each discrete category, and emotional valence and arousal ratings. This extensive range of data and annotations makes the SMAD highly suitable for real-world applications. SMAD database has enormous diversities, large quantities, and rich annotations, including:
 
 * 1303 number of data from 121 participants.
 * three high-reliability emotion annotations:
@@ -10,7 +10,7 @@ The Spontaneous Multimodal Affective Database (SMAD) provide a multi-dimensional
   * Emotional intensities for each discrete category in the range [0,3].
   * Two-dimensional continuous emotion ratings, i.e., valence and arousal ratings in the range [-1,1].
 * three subsets: facial expression subset, eye movement subset, and the emotion-
-related gaze comment subset
+related gaze content subset
 * all manual and automatic annotations: includes 1 participant annotation, 4 expert annotations, and 1 automatic model annotation for each data.
 * three benchmarks: multimodal emotion classification, multimodal valence and arousal regression and multimodal emotional intensity regression. 
 
